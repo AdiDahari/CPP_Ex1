@@ -1,7 +1,27 @@
+/**
+ * This file defines the "ariel" namespace for the assignment.
+ * the namespace contains a single function which returns a String representing a modular snowman print.
+ * each different input ([1-4], length = 8) returns a different snowman.
+ * 
+ * Building the desired snowman is creating a string by the template:
+ *  HHHHH
+ *  HHHHH  = H for Hat.
+ * X(LNR)Y = X for upper-left Arm, L for Left Eye, N for Nose, R for Right Eye, Y for upper-left Arm. 
+ * X(TTT)Y = X for lower-right Arm, T for Torso, Y for lower-right Arm.
+ *  (BBB)  = B for Base.
+ * 
+ * For more information please visit: https://codegolf.stackexchange.com/questions/49671/do-you-want-to-code-a-snowman .
+ * */
+
 #include "snowman.hpp"
 #include <iostream>
 #include <string>
 #include <exception>
+
+//Defining Constant Expressions for the Minimum and Maximum values of input
+constexpr int MIN_VAL = 11111111;
+constexpr int MAX_VAL = 44444444;
+
 //As required - namespace ariel is used for the function snowman
 namespace ariel
 {
@@ -14,7 +34,7 @@ namespace ariel
         int check = input;
 
         //1st validation for not accepting unhandled inputs. Exception thrown if input isn't valid.
-        if (input < 11111111 || input > 44444444)
+        if (input < MIN_VAL || input > MAX_VAL)
         {
             std::__throw_invalid_argument("Not a valid input!");
         }
@@ -50,13 +70,6 @@ namespace ariel
                 input /= 10;
             }
 
-            /**Building the desired string by given input in the desired template:
-             *  HHHHH
-             *  HHHHH  = H for Hat.
-             * X(LNR)Y = X for upper-left Arm, L for Left Eye, N for Nose, R for Right Eye, Y for upper-left Arm. 
-             * X(TTT)Y = X for lower-right Arm, T for Torso, Y for lower-right Arm.
-             *  (BBB)  = B for Base.
-             * */
             string ans = " " + hat[arr[0]] + highLA[arr[4]] + "(" + lEye[arr[2]] + nose[arr[1]] + rEye[arr[3]] + ")" + highRA[arr[5]] + "\n" + lowLA[arr[4]] + "(" + torso[arr[6]] + ")" + lowRA[arr[5]] + "\n (" + base[arr[7]] + ")";
             return ans;
         }
