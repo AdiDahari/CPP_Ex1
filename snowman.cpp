@@ -15,6 +15,7 @@
 
 #include "snowman.hpp"
 #include <iostream>
+#include <array>
 #include <string>
 #include <exception>
 
@@ -51,16 +52,16 @@ namespace ariel
             }
 
             //Creating strings arrays for easy access to each component needed in each scenario.
-            const string hat[] = {"", "_===_\n", " ___ \n .....\n", "  _  \n  /_\\ \n", " ___ \n (_*_)\n"};
-            const string nose[] = {"", ",", ".", "_", " "};
-            const string lEye[] = {"", ".", "o", "O", "-"};
-            const string rEye[] = {"", ".", "o", "O", "-"};
-            const string highLA[] = {"", " ", "\\", " ", " "};
-            const string lowLA[] = {"", "<", " ", "/", " "};
-            const string highRA[] = {"", " ", "/", " ", " "};
-            const string lowRA[] = {"", ">", " ", "\\", " "};
-            const string torso[] = {"", " : ", "] [", "> <", "   "};
-            const string base[] = {"", " : ", "\" \"", "___", "   "};
+            const std::array<std::string, 5> hat = {"", "_===_\n", " ___ \n .....\n", "  _  \n  /_\\ \n", " ___ \n (_*_)\n"};
+            const std::array<std::string, 5> nose = {"", ",", ".", "_", " "};
+            const std::array<std::string, 5> lEye = {"", ".", "o", "O", "-"};
+            const std::array<std::string, 5> rEye = {"", ".", "o", "O", "-"};
+            const std::array<std::string, 5> highLA = {"", " ", "\\", " ", " "};
+            const std::array<std::string, 5> lowLA = {"", "<", " ", "/", " "};
+            const std::array<std::string, 5> highRA = {"", " ", "/", " ", " "};
+            const std::array<std::string, 5> lowRA = {"", ">", " ", "\\", " "};
+            const std::array<std::string, 5> torso = {"", " : ", "] [", "> <", "   "};
+            const std::array<std::string, 5> base = {"", " : ", "\" \"", "___", "   "};
 
             //Converting the input int to an array for easy access each component seprately.
             int *arr = new int[8];
@@ -76,7 +77,7 @@ namespace ariel
     }
 }
 
-// int main()
-// {
-//     std::cout << ariel::snowman(11111120) << endl;
-// }
+int main()
+{
+    std::cout << ariel::snowman(12341234) << endl;
+}
