@@ -20,9 +20,6 @@
 #include <string>
 #include <exception>
 using namespace std;
-//Defining Constant Expressions for the Minimum and Maximum values of input
-const int MIN_VAL = 11111111;
-const int MAX_VAL = 44444444;
 
 //As required - namespace ariel is used for the function snowman
 namespace ariel
@@ -35,20 +32,20 @@ namespace ariel
         //1st validation for not accepting unhandled inputs. Exception thrown if input isn't valid.
         if (input < MIN_VAL || input > MAX_VAL)
         {
-            __throw_invalid_argument("Not a valid input!");
+            __throw_invalid_argument("Error! Not a valid input");
         }
         else
         {
-            int *arr = new int[8];
+            int *arr = new int[LEN];
             //2nd validation using the check int for not accepting numbers in [11111111 - 44444444] which contains any number except [1-4](such as 11115011).
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < LEN; i++)
             {
-                if (input % 10 > 4 || input % 10 < 1)
+                if (input % BASE > 4 || input % BASE < 1)
                 {
-                    __throw_invalid_argument("Not a valid input!");
+                    __throw_invalid_argument("Error! Not a valid input");
                 }
-                arr[7 - i] = input % 10;
-                input /= 10;
+                arr[FINAL_INDEX - i] = input % BASE;
+                input /= BASE;
             }
 
             //Creating strings arrays for easy access to each component needed in each scenario.
