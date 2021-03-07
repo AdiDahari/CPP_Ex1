@@ -1,11 +1,7 @@
 #include <string>
-#ifndef SNOWMAN_HPP
-#define SNOWMAN_HPP
-using namespace std;
+#pragma once
 
 namespace ariel
 {
-    string snowman(int input);
+    std::string snowman(int input);
 }
-
-#endif
