@@ -31,7 +31,7 @@ string nospaces(string input)
 
 TEST_CASE("Good snowman code") //HNLRXYTB
 {
-    //General Tests for valid inputs and expected outcome string.
+    //General Tests for valid inputs and expected outcome strings.
     CHECK(nospaces(snowman(11114411)) == nospaces("_===_\n(.,.)\n( : )\n( : )"));
     CHECK(nospaces(snowman(11111111)) == nospaces("_===_\n(.,.)\n<( : )>\n( : )"));
     CHECK(nospaces(snowman(22222222)) == nospaces("___\n.....\n\\(o.o)/\n(] [)\n(\" \")"));
@@ -46,7 +46,7 @@ TEST_CASE("Good snowman code") //HNLRXYTB
 
 TEST_CASE("Bad snowman code") //HNLRXYTB
 {
-    //Tests for invalid inputs in each index of the input(0-7).
+    //Tests for invalid inputs(0, 5-9) in each index of the input(0-7).
     CHECK_THROWS(snowman(11111110));
     CHECK_THROWS(snowman(11111151));
     CHECK_THROWS(snowman(11111611));
