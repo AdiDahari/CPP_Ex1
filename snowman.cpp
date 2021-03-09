@@ -24,6 +24,7 @@ using namespace std;
 //As required - namespace ariel is used for the function snowman
 namespace ariel
 {
+    //enumeration of the snowman's components as the described order: H N L R X Y T B
     enum comp
     {
         H,
@@ -82,8 +83,3 @@ namespace ariel
         }
     }
 }
-
-// int main()
-// {
-//     std::cout << ariel::snowman(11144414) << endl;
-// }
