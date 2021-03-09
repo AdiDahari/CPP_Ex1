@@ -24,6 +24,18 @@ using namespace std;
 //As required - namespace ariel is used for the function snowman
 namespace ariel
 {
+    enum comp
+    {
+        H,
+        N,
+        L,
+        R,
+        X,
+        Y,
+        T,
+        B
+
+    };
 
     //Function which returns a string with the desired snowman's components. recieves an int as a parameter.
     string snowman(int input)
@@ -36,7 +48,7 @@ namespace ariel
         }
         else
         {
-            int *arr = new int[LEN];
+            array<int, LEN> arr = {};
             //2nd validation using the check int for not accepting numbers in [11111111 - 44444444] which contains any number except [1-4](such as 11115011).
             for (int i = 0; i < LEN; i++)
             {
@@ -44,7 +56,7 @@ namespace ariel
                 {
                     __throw_invalid_argument("Error! Not a valid input");
                 }
-                arr[FINAL_INDEX - i] = input % BASE;
+                arr.at(FINAL_INDEX - i) = input % BASE;
                 input /= BASE;
             }
 
@@ -62,10 +74,10 @@ namespace ariel
 
             //Converting the input int to an array for easy access each component seprately.
 
-            string ans = " " + hat[arr[0]] +
-                         highLA[arr[4]] + "(" + lEye[arr[2]] + nose[arr[1]] + rEye[arr[3]] + ")" + highRA[arr[5]] + "\n" +
-                         lowLA[arr[4]] + "(" + torso[arr[6]] + ")" + lowRA[arr[5]] + "\n (" +
-                         base[arr[7]] + ")";
+            string ans = " " + hat.at(arr.at(H)) +
+                         highLA.at(arr.at(X)) + "(" + lEye.at(arr.at(L)) + nose.at(arr.at(N)) + rEye.at(arr.at(R)) + ")" + highRA.at(arr.at(Y)) + "\n" +
+                         lowLA.at(arr.at(X)) + "(" + torso.at(arr.at(T)) + ")" + lowRA.at(arr.at(Y)) + "\n (" +
+                         base.at(arr.at(B)) + ")";
             return ans;
         }
     }
