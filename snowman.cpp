@@ -45,7 +45,8 @@ namespace ariel
         //1st validation for not accepting unhandled inputs. Exception thrown if input isn't valid.
         if (input < MIN_VAL || input > MAX_VAL)
         {
-            __throw_invalid_argument("Error! Not a valid input");
+            //__throw_invalid_argument("Error! Not a valid input");
+            __throw_out_of_range("Error! not a valid input");
         }
         else
         {
@@ -55,7 +56,7 @@ namespace ariel
             {
                 if (input % BASE > 4 || input % BASE < 1)
                 {
-                    __throw_invalid_argument("Error! Not a valid input");
+                    __throw_out_of_range("Error! Not a valid input");
                 }
                 arr.at(FINAL_INDEX - i) = input % BASE;
                 input /= BASE;
